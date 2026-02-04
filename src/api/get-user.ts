@@ -2,7 +2,7 @@ import { User } from "@/models/user";
 import { GithubService } from "@/services/github-service";
 import { Effect, Schema } from "effect";
 
-export const getUser = Effect.fn(function* ({
+export const getUser = Effect.fn("api/get-user")(function* ({
   username,
 }: {
   username: string;

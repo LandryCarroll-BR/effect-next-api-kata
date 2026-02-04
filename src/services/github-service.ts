@@ -7,7 +7,11 @@ export class GithubService extends Effect.Service<GithubService>()(
   "GithubService",
   {
     effect: Effect.succeed({
-      getUser: Effect.fn(function* ({ id }: { id: string }) {
+      getUser: Effect.fn("services/github-service")(function* ({
+        id,
+      }: {
+        id: string;
+      }) {
         const client = yield* HttpApiClient.make(GitHubApi, {
           baseUrl: "https://api.github.com",
         });
